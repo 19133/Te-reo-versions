@@ -1,4 +1,7 @@
-
+#version 4
+#by kafi ashkir
+#purpose: Added the type of quiz component which asks the user if they want to play the multi choice mode, timed quiz mode, or the classic mode.
+# Added type of quiz component on 25/6/21
 
 import random
 
@@ -120,12 +123,4 @@ while True:
             #if wrong, Asks the same question again
             print("Wrong Answer")
     question.remove(ques)
-
-
-
-
-
-
-
-
 

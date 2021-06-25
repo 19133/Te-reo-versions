@@ -1,7 +1,13 @@
-
+#version 3 
+#by kafi ashkir
+#What makes it different to version 2: Added a level component which asks the user what difficlutly they want to play, difficulty 1 is easy, difficulty 2 is normal, difficulty 3 is hard, 
+# Difficulty component added on 25/6/21
 
 import random
 
+# Main routine
+
+# yes no component
 def yes_no(question):
   valid=False
   while not valid:
@@ -15,6 +21,7 @@ def yes_no(question):
         response = "no"
         return response 
 
+# difficulty component
 def level(question):
   valid=False
   while not valid:
@@ -33,27 +40,6 @@ def level(question):
         return response 
 
 
-def type_of_quiz(question):
-  valid=False
-  while not valid:
-    user_response = input (question) .lower()
-
-    if user_response == "multiple choice" or user_response  == "multi" or user_response  == "multi choice":   
-        user_response = "multiple"
-        return user_response
-      
-    elif user_response == "Timed quiz".lower() or user_response  == "timed".lower() or user_response  == "time".lower():   
-        user_response = "timed"
-        return user_response
-
-    if user_response == "classic quiz".lower() or user_response  == "classic".lower() or user_response  == "class".lower():   
-        user_response = "class"
-        return user_response
-    
-    else:
-      ("thanks for playing the Te Reo Maaori Quiz")
-
-
 #asks user if they have played the te maaori quiz
 played_before = yes_no ("Have you played the Te Reo Maori quiz?" + "\n")
 # if yes, program continues
@@ -64,36 +50,22 @@ elif played_before == "no":
   print("no")
 
 played_before = level ("What difficulty do you want to play, 1 is easy, 2 is normal, 3 is hard" + "\n")
-# if yes, program continues
+# if user chooses diifulty 3, they will be given very difficult questions
 if played_before == "3":
   print("Thats great")
 
-# if no, prints the rules and says what it is
+# if user chooses diifulty 2, they will be given normal difficulty questions
 elif played_before == "2":
   print("no")
+
+# if user chooses diifulty 1, they will be given easy questions
 elif played_before == "1":
   print("no")
 else:
   ("Plese pick 1, 2 or 3. 1 is easy, 2 is normal, 3 is hard")
 
 
-quiztype = type_of_quiz ("There are 3 type of quizes, Multiple choice, timed, or classic . Which one would you like to play" + "\n")
-# if yes, program continues
-if quiztype == "multiple choice":
-  print("Thats amazing!")
-  print("You will be given multiple choice and you will have to pick one")
-  
 
-# if no, prints the rules and says what it is
-if quiztype == "timed":
-  print("Thats amazing")
-  print("You will be given a amount of time to answer questions")
-
-if quiztype == "classic":
-  print("Program continues")
-
-else:
-  ("Please type multi, timed, or classic") 
 
 # quiz questions (These are not the questions that will be in the quiz, these questions are here for testing purposes) and answers
 QnA= {
@@ -120,6 +92,8 @@ while True:
             #if wrong, Asks the same question again
             print("Wrong Answer")
     question.remove(ques)
+
+
 
 
 
